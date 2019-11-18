@@ -41,7 +41,7 @@ class FormController extends Controller
         }
 
         Mail::to($request->email)->send(new FormConfirmation());
-        Mail::to('jonathan@tqz.be')->send(new FormNewSubmit($emailCreated));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new FormNewSubmit($emailCreated));
 
         return redirect()->route('home')->withSuccess('Votre message a bien été envoyé !');
     }
