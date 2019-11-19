@@ -14,7 +14,7 @@
             </li>
         </ul>
 
-        <input type="hidden" name="files_name" v-model="filesStored">
+        <input type="hidden" name="files_id" v-model="filesStored">
 
     </div>
 
@@ -59,6 +59,7 @@
                 .then((response) => {
                     if ( response.data === 'success') {
                         this.files.splice(indexArray, 1);
+                        this.filesStored.splice(indexArray, 1);
                     }
                 })
             },

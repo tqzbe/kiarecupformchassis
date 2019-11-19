@@ -41,6 +41,8 @@ class FormNewSubmit extends Mailable
                 $toto = File::where('id', $file)->first();
                 $send->attach("storage/".$toto['location'].'/'.$toto['name']);
             }
+
+            $this->email->files_id = $files;
         }
 
         return $send;

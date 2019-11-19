@@ -101,7 +101,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group textarea">
+                    <div class="form-group">
                         <label>Photos</label>
                         <div class="container-fields">
                             <file-uploader></file-uploader>

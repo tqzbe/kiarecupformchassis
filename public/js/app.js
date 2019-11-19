@@ -1897,6 +1897,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data === 'success') {
           _this2.files.splice(indexArray, 1);
+
+          _this2.filesStored.splice(indexArray, 1);
         }
       });
     },
@@ -19586,7 +19588,7 @@ var render = function() {
           expression: "filesStored"
         }
       ],
-      attrs: { type: "hidden", name: "files_name" },
+      attrs: { type: "hidden", name: "files_id" },
       domProps: { value: _vm.filesStored },
       on: {
         input: function($event) {

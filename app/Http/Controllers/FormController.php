@@ -16,7 +16,11 @@ class FormController extends Controller
         $rules = [
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'chassis_number' => 'nullable',
+            'piece_reference' => 'nullable',
+            'message' => 'nullable',
+            'phone' => 'nullable'
         ];
 
         $validatedData = $request->validate($rules);
@@ -28,10 +32,10 @@ class FormController extends Controller
         }
 
         $files = [];
-        if ( !empty($request->files_name) ) {
-            $emailCreated->files_id = $request->files_name;
+        if ( !empty($request->files_id) ) {
+            $emailCreated->files_id = $request->files_id;
             $emailCreated->save();
-            $files = explode(',', $request->files_name);
+            $files = explode(',', $request->files_id);
         }
 
         if ( !empty($files) ) {
