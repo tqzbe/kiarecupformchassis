@@ -1,1 +1,1 @@
-formConfirmation.blade.php
+Merci pour votre message, nous vous répondrons dans les plus brefs délais.
