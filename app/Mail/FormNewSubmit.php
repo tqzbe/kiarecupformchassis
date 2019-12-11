@@ -34,6 +34,8 @@ class FormNewSubmit extends Mailable
     {
         $send = $this->view('emails.formNewSubmit');
 
+
+
         if ( !empty($this->email->files_id) ) {
             $files = explode(',', $this->email->files_id);
 

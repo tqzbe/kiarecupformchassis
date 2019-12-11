@@ -30,6 +30,7 @@ class FormController extends Controller
         if ( !$emailCreated ) {
             return redirect()->route('home')->withError("Une erreur est survenue lors de l'envoi de votre message. Veuillez ré-essayer !");
         }
+        
 
         $files = [];
         if ( !empty($request->files_id) ) {
@@ -37,16 +38,14 @@ class FormController extends Controller
             $emailCreated->save();
             $files = explode(',', $request->files_id);
         }
-
         if ( !empty($files) ) {
             foreach ( $files as $key => $file ) {
                 $file = File::where('id', $file)->update(['linkable_id' => $emailCreated->id]);
             }
         }
-
         Mail::to($request->email)->send(new FormConfirmation());
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new FormNewSubmit($emailCreated));
-
+        
         return redirect()->route('home')->withSuccess('Votre message a bien été envoyé !');
     }
 }
