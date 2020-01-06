@@ -34,6 +34,8 @@
 
                     @csrf
 
+                    <input name="email2" id="email2">
+
                     <div class="form-group @error('lastname') is-invalid @enderror">
                         <label for="lastname">Nom *</label>
 
@@ -108,7 +110,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" id="btnFormSubmit">Envoyer</button>
+                    <button type="button" id="btnFormSubmit">Envoyer</button>
 
                 </form>
 

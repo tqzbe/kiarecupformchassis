@@ -13,6 +13,10 @@ class FormController extends Controller
 {
     public function send(Request $request)
     {
+        if ( !empty($request->email2) ) {
+            return redirect()->route('home');
+        }
+
         $rules = [
             'firstname' => 'required',
             'lastname' => 'required',
